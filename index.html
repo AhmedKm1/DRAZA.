@@ -147,9 +147,9 @@
     }
 
     .hero-content h1 {
-      font-size: 60px;
-      font-weight: 700;
-      letter-spacing: 2px;
+      font-size: 56px;
+      font-weight: 300;
+      letter-spacing: 6px;
       margin-bottom: 20px;
       text-transform: uppercase;
       font-family: 'Playfair Display', serif;
@@ -229,9 +229,13 @@
       transform: scale(1.08);
     }
 
-    /* Third picture: rotated 90deg right AND mirrored sideways */
-    .item-image-wrapper.rotate-mirror {
-      transform: rotate(90deg) scaleX(-1);
+    /* Third picture: mirror only the image, not the overlay/button */
+    .mirror-img {
+      transform: scaleX(-1);
+    }
+
+    .item:hover .mirror-img {
+      transform: scaleX(-1) scale(1.08);
     }
 
     .overlay { 
@@ -801,10 +805,10 @@
         </div>
       </div>
 
-      <!-- Picture 3: rotated 90deg right AND mirrored sideways -->
+      <!-- Picture 3: image mirrored sideways only -->
       <div class="item" onclick="openModal(2)">
-        <div class="item-image-wrapper rotate-mirror">
-          <img src="https://i.imgur.com/QDSQlhg.png" alt="Eyes That Won't Forget -Gaza">
+        <div class="item-image-wrapper">
+          <img class="mirror-img" src="https://i.imgur.com/QDSQlhg.png" alt="Eyes That Won't Forget -Gaza">
           <div class="overlay">
             <button class="buy-btn">View</button>
           </div>
@@ -855,7 +859,7 @@
       
       <p>I'm not just an artist. <em>I'm a voice from the ashes.</em></p>
       
-      <p>I've lost 65 members of my family, and 34 of my friends. Now I fight every single day to save what's left: my mother, my little angel Eileen, my father, and my brother, before it's too late.</p>
+      <p>I've lost 66 members of my family, and 35 of my friends. Now I fight every single day to save what's left: my mother, my little angel Eileen, my father, and my brother, before it's too late.</p>
       
       <p>We once had a life full of color, pride, and dignity. We laughed, we lived. But that world is gone. Now, I'm left with memories, grief, and one tool that still listens to me: my art. I never imagined I'd be in a place where survival depends on art… and on strangers with kind hearts.</p>
       
