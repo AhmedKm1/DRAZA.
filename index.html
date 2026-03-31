@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DRAZA — scars of GAZA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: #000; 
+      color: #fff; 
+      line-height: 1.6;
+    }
+
+    .page-wrapper { max-width: 1200px; margin: 0 auto; background: #000; }
+
+    header { 
+      padding: 40px 60px; 
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-section { display: flex; align-items: center; gap: 12px; }
+
+    .logo-circle {
+      width: 35px; height: 35px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+
+    .logo { 
+      font-size: 24px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+    }
+
+    .subtitle-header {
+      font-size: 9px; letter-spacing: 1.5px;
+      color: #aaa; text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    nav { display: flex; gap: 40px; align-items: center; }
+
+    nav a { 
+      text-decoration: none; 
+      color: #aaa; font-size: 10px; 
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: #fff; }
+
+    .cart-icon { font-size: 16px; cursor: pointer; transition: opacity 0.3s ease; color: #fff; }
+    .cart-icon:hover { opacity: 0.6; }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      margin: 40px 0;
+    }
+
+    .hero img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
+    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; }
+
+    .hero-content { position: absolute; text-align: center; color: white; z-index: 2; }
+    /* THINNER HERO TITLE */
+    .hero-content h1 { font-size: 60px; font-weight: 100; letter-spacing: 5px; margin-bottom: 20px; text-transform: uppercase; font-family: 'Playfair Display', serif; font-style: italic; }
+
+    .hero-content p { font-size: 20px; font-weight: 300; letter-spacing: 1.5px; margin-bottom: 20px; text-transform: uppercase; }
+    .hero-btn { display: inline-block; padding: 10px 25px; background: rgba(255, 255, 255, 0.2); color: white; text-decoration: none; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; border: 1px solid white; cursor: pointer; transition: all 0.3s ease; }
+    .hero-btn:hover { background: white; color: #000; }
+
+    .featured-section { padding: 80px 60px; }
+    .featured-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 60px; font-weight: 600; }
+
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; margin-bottom: 80px; }
+    .item { background: transparent; cursor: pointer; transition: all 0.3s ease; position: relative; }
+
+    .item-image-wrapper { position: relative; overflow: hidden; aspect-ratio: 1; background: #1a1a1a; }
+    .item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .item:hover img { transform: scale(1.08); }
+
+    /* ROTATE THIRD IMAGE 90 DEGREE */
+    .item:nth-child(3) .item-image-wrapper img { transform: rotate(90deg); }
+
+    .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+    .item:hover .overlay { opacity: 1; }
+
+    .buy-btn { background: #fff; color: #000; padding: 12px 30px; border: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: all 0.3s ease; border-radius: 4px; }
+    .buy-btn:hover { background: #ddd; transform: scale(1.05); }
+
+    .item-info { padding: 20px 0; text-align: center; }
+    .item-title { font-size: 13px; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px; color: #fff; }
+    .item-price { font-size: 11px; color: #888; font-weight: 400; letter-spacing: 0.5px; }
+    .item-buy-label { font-size: 12px; color: #fff; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-top: 12px; }
+
+    /* modal and other CSS remains unchanged */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.98); z-index: 2000; overflow-y: auto; padding: 30px 0; }
+    .modal.active { display: block; }
+    .modal-content { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; padding: 30px; background: rgba(0, 0, 0, 0.98); }
+    .modal img { width: 100%; height: auto; object-fit: contain; }
+    .modal-info { color: white; max-height: 80vh; overflow-y: auto; }
+    .modal-title { font-size: 22px; font-weight: 300; margin-bottom: 18px; letter-spacing: 1px; text-transform: uppercase; }
+    .modal-price { font-size: 15px; color: #bbb; margin-bottom: 25px; letter-spacing: 0.5px; }
+    .modal-description { font-size: 13px; line-height: 1.8; color: #ddd; margin-bottom: 25px; }
+    .purchase-btn { display: inline-block; padding: 11px 28px; background: #6772e5; color: white; text-decoration: none; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s ease; width: 100%; text-align: center; }
+    .purchase-btn:hover { background: #5568d3; }
+    .close-modal { position: fixed; top: 30px; right: 30px; font-size: 28px; color: white; cursor: pointer; background: none; border: none; transition: opacity 0.3s ease; z-index: 2001; }
+    .close-modal:hover { opacity: 0.6; }
+
+    @media (max-width: 1024px) {
+      .gallery-grid { grid-template-columns: 1fr; gap: 40px; }
+      .modal-content { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 20px; padding: 30px; }
+      nav { gap: 20px; flex-wrap: wrap; }
+      .featured-section { padding: 40px 30px; }
+      .hero { margin: 20px 0; height: 300px; }
+      .hero-content h1 { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+<header>
+  <div class="logo-section">
+    <div class="logo-circle">D</div>
+    <div class="logo-text">
+      <div class="logo">DRAZA</div>
+      <div class="subtitle-header">Scars of Gaza</div>
+    </div>
+  </div>
+  <nav>
+    <a onclick="showPage('shop')">Gallery</a>
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('donate')">Donate</a>
+    <span class="cart-icon">🛒</span>
+  </nav>
+</header>
+
+<div id="shop" class="page active">
+  <div class="hero">
+    <img src="https://i.imgur.com/3aPmh7u.jpg" alt="Hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Art That Saves Lives</h1>
+    </div>
+  </div>
+
+  <div class="featured-section">
+    <h2 class="featured-title">Featured Artist</h2>
+    <div class="gallery-grid">
+      <!-- SWAPPED IMAGES (only images, not titles) -->
+      <div class="item" onclick="openModal(0)">
+        <div class="item-image-wrapper">
+          <img src="https://i.imgur.com/9TCiQ9v.png" alt="Birth then Death - Abu Al‑Qumsan">
+          <div class="overlay"><button class="buy-btn">View</button></div>
+        </div>
+        <div class="item-info">
+          <div class="item-title">Birth then Death - Abu Al‑Qumsan</div>
+          <div class="item-price">$250</div>
+          <div class="item-buy-label">BUY NOW</div>
+        </div>
+      </div>
+
+      <div class="item" onclick="openModal(1)">
+        <div class="item-image-wrapper">
+          <img src="https://i.imgur.com/nWktisX.png" alt="The Soul of My Soul-Gaza">
+          <div class="overlay"><button class="buy-btn">View</button></div>
+        </div>
+        <div class="item-info">
+          <div class="item-title">The Soul of My Soul-Gaza</div>
+          <div class="item-price">$280</div>
+          <div class="item-buy-label">BUY NOW</div>
+        </div>
+      </div>
+
+      <!-- THIRD IMAGE ROTATED 90 DEGREE -->
+      <div class="item" onclick="openModal(2)">
+        <div class="item-image-wrapper">
+          <img src="https://i.imgur.com/QDSQlhg.png" alt="Eyes That Won't Forget -Gaza">
+          <div class="overlay"><button class="buy-btn">View</button></div>
+        </div>
+        <div class="item-info">
+          <div class="item-title">Eyes That Won't Forget -Gaza</div>
+          <div class="item-price">$300</div>
+          <div class="item-buy-label">BUY NOW</div>
+        </div>
+      </div>
+
+      <div class="item" onclick="openModal(3)">
+        <div class="item-image-wrapper">
+          <img src="https://i.imgur.com/YWOQJkG.png" alt="Ghost in the Eyes – Badr Dahlan-Gaza">
+          <div class="overlay"><button class="buy-btn">View</button></div>
+        </div>
+        <div class="item-info">
+          <div class="item-title">Ghost in the Eyes – Badr Dahlan-Gaza</div>
+          <div class="item-price">$320</div>
+          <div class="item-buy-label">BUY NOW</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL (Buy Now BUTTON LINKS TO STRIPE) -->
+<div id="modal" class="modal" onclick="if(event.target === this) closeModal()">
+  <button class="close-modal" onclick="closeModal()">✕</button>
+  <div class="modal-content">
+    <img id="modalImg" alt="Artwork">
+    <div class="modal-info">
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-price" id="modalPrice"></p>
+      <div class="modal-description" id="modalDescription"></div>
+      <button id="checkout-btn" class="purchase-btn" onclick="window.location.href='https://buy.stripe.com/cNi14m8rRbZ8b2HcRu5Ne03'">BUY NOW</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentArtwork = null;
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  window.scrollTo(0, 0);
+}
+function openModal(index) {
+  currentArtwork = index;
+  const items = document.querySelectorAll('.gallery-grid .item');
+  const artwork = items[index];
+  document.getElementById('modalImg').src = artwork.querySelector('img').src;
+  document.getElementById('modalTitle').innerText = artwork.querySelector('.item-title').innerText;
+  document.getElementById('modalPrice').innerText = artwork.querySelector('.item-price').innerText;
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+document.addEventListener('keydown', function(event) { if(event.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
