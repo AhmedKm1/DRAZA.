@@ -147,13 +147,14 @@
     }
 
     .hero-content h1 {
-      font-size: 56px;
-      font-weight: 300;
-      letter-spacing: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 4px;
       margin-bottom: 20px;
       text-transform: uppercase;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      color: rgba(255, 255, 255, 0.55);
     }
 
     .hero-content p {
@@ -227,14 +228,6 @@
 
     .item:hover img {
       transform: scale(1.08);
-    }
-
-    .mirror-img {
-      transform: scaleX(-1);
-    }
-
-    .item:hover .mirror-img {
-      transform: scaleX(-1) scale(1.08);
     }
 
     .overlay { 
@@ -783,7 +776,7 @@
         </div>
         <div class="item-info">
           <div class="item-title">The Soul of My Soul-Gaza</div>
-          <div class="item-price">$250</div>
+          <div class="item-price">€149.99</div>
           <div class="item-buy-label">BUY NOW</div>
         </div>
       </div>
@@ -797,21 +790,21 @@
         </div>
         <div class="item-info">
           <div class="item-title">Birth then Death - Abu Al&#8209;Qumsan</div>
-          <div class="item-price">$280</div>
+          <div class="item-price">€149.99</div>
           <div class="item-buy-label">BUY NOW</div>
         </div>
       </div>
 
       <div class="item" onclick="openModal(2)">
         <div class="item-image-wrapper">
-          <img class="mirror-img" src="https://i.imgur.com/WWytLZB.jpeg" alt="Eyes That Won't Forget -Gaza">
+          <img src="https://i.imgur.com/WWytLZB.jpeg" alt="Eyes That Won't Forget -Gaza">
           <div class="overlay">
             <button class="buy-btn">View</button>
           </div>
         </div>
         <div class="item-info">
           <div class="item-title">Eyes That Won't Forget -Gaza</div>
-          <div class="item-price">$300</div>
+          <div class="item-price">€149.99</div>
           <div class="item-buy-label">BUY NOW</div>
         </div>
       </div>
@@ -825,7 +818,7 @@
         </div>
         <div class="item-info">
           <div class="item-title">Ghost in the Eyes – Badr Dahlan-Gaza</div>
-          <div class="item-price">$320</div>
+          <div class="item-price">€149.99</div>
           <div class="item-buy-label">BUY NOW</div>
         </div>
       </div>
@@ -855,7 +848,7 @@
       
       <p>I'm not just an artist. <em>I'm a voice from the ashes.</em></p>
       
-      <p>I've lost 65 members of my family, and 34 of my friends. Now I fight every single day to save what's left: my mother, my little angel Eileen, my father, and my brother, before it's too late.</p>
+      <p>I've lost 66 members of my family, and 35 of my friends. Now I fight every single day to save what's left: my mother, my little angel Eileen, my father, and my brother, before it's too late.</p>
       
       <p>We once had a life full of color, pride, and dignity. We laughed, we lived. But that world is gone. Now, I'm left with memories, grief, and one tool that still listens to me: my art. I never imagined I'd be in a place where survival depends on art… and on strangers with kind hearts.</p>
       
@@ -948,28 +941,28 @@
 const artworks = [
   {
     title: "The Soul of My Soul-Gaza",
-    price: 250,
+    price: 149.99,
     image: "https://i.imgur.com/nWktisX.png",
     stripeLink: "https://buy.stripe.com/aFa00i8rR8MW1s7cRu5Ne05",
     description: `You might have seen this drawing on TikTok that got 372.5k views, here's the full video of how I made it:⬇️<br><br><a href="https://vt.tiktok.com/ZSSY6gRxH/" target="_blank">https://vt.tiktok.com/ZSSY6gRxH/</a><br><br>• This drawing captures the moment a father, Mohammed Abu Al‑Qumsan in Gaza, held his newborn twins' birth certificates—only to return minutes later to find them, his wife, and mother‑in‑law dead in an airstrike. What is supposed to be life-affirming turned into grief in less than ten minutes.<br><br>In my drawing, I reimagined that moment—I replaced the birth certificates with his twins themselves, as if he's holding them in his arms one final time.<br><br>Each stroke is a memory, a testimony to the lives stolen before they even had a chance to live<br><br><strong>-Note▶️:</strong> Selling this helps me save my family (my little sister Eileen, brother, mother and my father) they're still trapped in Gaza and I'm the only hope for them trying my hardest with all my breath to save them before it's too late, thank you🕊️`
   },
   {
     title: "Birth then Death - Abu Al‑Qumsan",
-    price: 280,
+    price: 149.99,
     image: "https://i.imgur.com/9TCiQ9v.png",
     stripeLink: "https://buy.stripe.com/cNi14m8rRbZ8b2HcRu5Ne03",
     description: `You might have seen this drawing on TikTok<br>here's the full video of how I made it:⬇️<br><br><a href="https://vt.tiktok.com/ZSSY6M4FC/" target="_blank">https://vt.tiktok.com/ZSSY6M4FC/</a><br><br>• This drawing portrays Khaled "Abu Diaa" Nabhan holding his granddaughter Reem, softly kissing her eyes as she lay lifeless in his arms. He repeated, "the soul of my soul", over and over.<br><br>His grief spoke louder than words—a grandfather's final goodbye became a global symbol of innocence lost and love persevering under genocide.<br><br><strong>-Note▶️:</strong> Selling this helps me save my family (my little sister Eileen, brother, mother and my father) they're still trapped in Gaza and I'm the only hope for them trying my hardest with all my breath to save them before it's too late, thank you🕊️🙏🏻`
   },
   {
     title: "Eyes That Won't Forget -Gaza",
-    price: 300,
+    price: 149.99,
     image: "https://i.imgur.com/WWytLZB.jpeg",
     stripeLink: "https://buy.stripe.com/eVq9ASeQfbZ89YDdVy5Ne06",
     description: `You might have seen this drawing that got 82k views on TikTok, here's the full video of how I made it:⬇️<br><br><a href="https://vt.tiktok.com/ZSSY6AQ1R/" target="_blank">https://vt.tiktok.com/ZSSY6AQ1R/</a><br><br>• This piece captures Mohammed Abu Louli's raw fear and trauma as seen in the viral video after his home was bombed. His wide, shocked eyes reflect the silent pain of countless children caught in war, whose innocence is shattered in an instant. Through this drawing, I wanted to give a face to the invisible wounds of conflict and remind the world of the human cost behind the headlines.<br><br><strong>-Note▶️:</strong> Selling this helps me save my family (my little sister Eileen, brother, mother and my father) they're still trapped in Gaza and I'm the only hope for them trying my hardest with all my breath to save them before it's too late, thank you🕊️🙏🏻`
   },
   {
     title: "Ghost in the Eyes – Badr Dahlan-Gaza",
-    price: 320,
+    price: 149.99,
     image: "https://i.imgur.com/YWOQJkG.png",
     stripeLink: "https://buy.stripe.com/bJe00icI71ku2wbaJm5Ne04",
     description: `You might have seen this drawing that got 42.1k views on TikTok, here's the full video of how I made it:⬇️<br><br><a href="https://vt.tiktok.com/ZSSYjAbnK/" target="_blank">https://vt.tiktok.com/ZSSYjAbnK/</a><br><br>• This drawing portrays Badr Dahlan, a Gazan man tortured during a month-long detention by occupation forces. His eyes stare wide open—haunted, shuttered in shock, and narrating all he cannot say.<br><br>In his gaze lies the weight of unspeakable violence: broken limbs, broken trust, and a broken sense of self.<br><br><strong>🍉Why This Drawing Matters:</strong><br>• It focuses on a real human face framed by trauma, not abstraction making empathy unavoidable.<br>• The bulging, empty eyes are symbolic of psychological disintegration imposed by violence.<br>• It becomes a tribute to survivors who return physically alive, but spiritually scarred.<br><br><strong>-Note▶️:</strong> Selling this helps me save my family (my little sister Eileen, brother, mother and my father) they're still trapped in Gaza and I'm the only hope for them trying my hardest with all my breath to save them before it's too late, thank you🕊️`
@@ -989,7 +982,7 @@ function openModal(index) {
   const artwork = artworks[index];
   document.getElementById('modalImg').src = artwork.image;
   document.getElementById('modalTitle').innerText = artwork.title;
-  document.getElementById('modalPrice').innerText = '$' + artwork.price;
+  document.getElementById('modalPrice').innerText = '€' + artwork.price;
   document.getElementById('modalDescription').innerHTML = artwork.description;
   document.getElementById('modal').classList.add('active');
   document.body.style.overflow = 'hidden';
