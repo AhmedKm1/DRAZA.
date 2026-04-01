@@ -229,7 +229,6 @@
       transform: scale(1.08);
     }
 
-    /* Third picture: mirror only the image, not the overlay/button */
     .mirror-img {
       transform: scaleX(-1);
     }
@@ -333,11 +332,7 @@
       text-transform: uppercase;
       color: #888;
       margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .artist-info h2 {
-      font-size: 18px;
+      px;
       font-weight: 300;
       letter-spacing: 1px;
       margin-bottom: 15px;
@@ -775,7 +770,6 @@
     <h2 class="featured-title">Featured Artist</h2>
     <div class="gallery-grid">
 
-      <!-- Picture 1: name swapped to "The Soul of My Soul-Gaza" -->
       <div class="item" onclick="openModal(0)">
         <div class="item-image-wrapper">
           <img src="https://i.imgur.com/nWktisX.png" alt="The Soul of My Soul-Gaza">
@@ -790,7 +784,6 @@
         </div>
       </div>
 
-      <!-- Picture 2: name swapped to "Birth then Death - Abu Al‑Qumsan" -->
       <div class="item" onclick="openModal(1)">
         <div class="item-image-wrapper">
           <img src="https://i.imgur.com/9TCiQ9v.png" alt="Birth then Death - Abu Al‑Qumsan">
@@ -805,10 +798,9 @@
         </div>
       </div>
 
-      <!-- Picture 3: image mirrored sideways only -->
       <div class="item" onclick="openModal(2)">
         <div class="item-image-wrapper">
-          <img class="mirror-img" src="https://i.imgur.com/QDSQlhg.png" alt="Eyes That Won't Forget -Gaza">
+          <img class="mirror-img" src="https://i.imgur.com/WWytLZB.jpeg" alt="Eyes That Won't Forget -Gaza">
           <div class="overlay">
             <button class="buy-btn">View</button>
           </div>
@@ -859,7 +851,7 @@
       
       <p>I'm not just an artist. <em>I'm a voice from the ashes.</em></p>
       
-      <p>I've lost 66 members of my family, and 35 of my friends. Now I fight every single day to save what's left: my mother, my little angel Eileen, my father, and my brother, before it's too late.</p>
+      <p>I've lost 65 members of my family, and 34 of my friends. Now I fight every single day to save what's left: my mother, my little angel Eileen, my father, and my brother, before it's too late.</p>
       
       <p>We once had a life full of color, pride, and dignity. We laughed, we lived. But that world is gone. Now, I'm left with memories, grief, and one tool that still listens to me: my art. I never imagined I'd be in a place where survival depends on art… and on strangers with kind hearts.</p>
       
@@ -965,7 +957,7 @@ const artworks = [
   {
     title: "Eyes That Won't Forget -Gaza",
     price: 300,
-    image: "https://i.imgur.com/QDSQlhg.png",
+    image: "https://i.imgur.com/WWytLZB.jpeg",
     description: `You might have seen this drawing that got 82k views on TikTok, here's the full video of how I made it:⬇️<br><br><a href="https://vt.tiktok.com/ZSSY6AQ1R/" target="_blank">https://vt.tiktok.com/ZSSY6AQ1R/</a><br><br>• This piece captures Mohammed Abu Louli's raw fear and trauma as seen in the viral video after his home was bombed. His wide, shocked eyes reflect the silent pain of countless children caught in war, whose innocence is shattered in an instant. Through this drawing, I wanted to give a face to the invisible wounds of conflict and remind the world of the human cost behind the headlines.<br><br><strong>-Note▶️:</strong> Selling this helps me save my family (my little sister Eileen, brother, mother and my father) they're still trapped in Gaza and I'm the only hope for them trying my hardest with all my breath to save them before it's too late, thank you🕊️🙏🏻`
   },
   {
